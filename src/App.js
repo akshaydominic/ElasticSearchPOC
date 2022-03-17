@@ -9,7 +9,7 @@ const connector = new AppSearchAPIConnector({
 	searchKey: 'search-229rksjgu5nb5gm75fq9foxp',
 	engineName: 'student-elasticsearch',
 	endpointBase: 'https://student-elasticsearch.ent.us-central1.gcp.cloud.es.io',
-	cacheResponses: false
+	cacheResponses: true
 });
 export default function App() {
 	return (
@@ -19,7 +19,8 @@ export default function App() {
 			}}
 		>
 			<div className="App">
-				<Layout header={<SearchBox />} bodyContent={<Results titleField="firstname" />} />
+				<Layout header={<SearchBox />} bodyContent={<Results titleField="lastname" />} />
+        
 			</div>
 		</SearchProvider>
 	);
