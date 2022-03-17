@@ -11,16 +11,56 @@ const connector = new AppSearchAPIConnector({
 	endpointBase: 'https://student-elasticsearch.ent.us-central1.gcp.cloud.es.io',
 	cacheResponses: true
 });
+const configurationOptions = {
+	apiConnector: connector,
+	searchQuery: {
+		disjunctiveFacets: [ 'gender' ],
+		disjunctiveFacetsAnalyticsTags: [ 'Ignore' ],
+		search_fields: {
+			lastname: {},
+			city: {},
+			firstname: {},
+			country: {},
+			gender: {}
+		},
+		result_fields: {
+			lastname: {
+				snippet: {
+					size: 100,
+					fallback: true
+				}
+			},
+			studentstatus: {
+				snippet: {
+					size: 100,
+					fallback: true
+				}
+			},
+
+			firstname: {
+				snippet: {
+					size: 100,
+					fallback: true
+				}
+			}
+		},
+		facets: {
+			state: { type: 'value', size: 30 }
+		}
+	},
+	hasA11yNotifications: true,
+	a11yNotificationMessages: {
+		searchResults: ({ start, end, totalResults, searchTerm }) =>
+			`Searching for "${searchTerm}". Showing ${start} to ${end} results out of ${totalResults}.`
+	},
+	alwaysSearchOnInitialLoad: true
+};
+
 export default function App() {
 	return (
-		<SearchProvider
-			config={{
-				apiConnector: connector
-			}}
-		>
+		<SearchProvider config={configurationOptions}>
 			<div className="App">
 				<Layout header={<SearchBox />} bodyContent={<Results titleField="lastname" />} />
-        
 			</div>
 		</SearchProvider>
 	);
