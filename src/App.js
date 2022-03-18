@@ -18,7 +18,7 @@ const configurationOptions = {
 	apiConnector: connector,
 
 	searchQuery: {
-		disjunctiveFacets: [ 'state', 'lastname', 'firstname', 'gender' ],
+		disjunctiveFacets: [ 'state', 'gender' ],
 		disjunctiveFacetsAnalyticsTags: [ 'Ignore' ],
 		search_fields: {
 			lastname: {},
@@ -76,8 +76,9 @@ export default function App() {
 											<p>{r.firstname.raw}</p>
 											<p>{r.city.raw}</p>
 											<p>{r.state.raw}</p>
-											<p>{r.gender.raw} {r.studentstatus.raw}</p>
-
+											<p>
+												{r.gender.raw} {r.studentstatus.raw}
+											</p>
 
 											<button>Download </button>
 										</div>
