@@ -7,6 +7,7 @@ import { Paging } from '@elastic/react-search-ui';
 import { PagingInfo } from '@elastic/react-search-ui';
 
 import '@elastic/react-search-ui-views/lib/styles/styles.css';
+import DownloadFile from './components/DownloadFile';
 
 const connector = new AppSearchAPIConnector({
 	searchKey: 'search-229rksjgu5nb5gm75fq9foxp',
@@ -52,6 +53,26 @@ const configurationOptions = {
 	},
 	alwaysSearchOnInitialLoad: true
 };
+const ConvertRawDatatoJson = (Results) => {
+	let RawtoJsonArray = [];
+
+	Results.map((e) => {
+		RawtoJsonArray.push([
+			{ lastname: e.lastname.raw },
+			{ firstname: e.firstname.raw },
+			{ city: e.city.raw },
+			{ state: e.state.raw },
+			{ gender: e.gender.raw },
+			{ studentstatus: e.studentstatus.raw },
+			{ major: e.major.raw },
+			{ country: e.country.raw },
+			{ age: e.age.raw },
+			{ grade: e.grade.raw },
+			{ height: e.height.raw }
+		]);
+	});
+	return RawtoJsonArray;
+};
 
 export default function App() {
 	return (
@@ -65,11 +86,18 @@ export default function App() {
 					})}
 				>
 					{({ results }) => {
+						let resultdata = ConvertRawDatatoJson(results);
 						return (
 							<div>
 								<Layout
 									header={<SearchBox inputProps={{ placeholder: 'Search for Student details' }} />}
-									bodyHeader={<PagingInfo />}
+									bodyHeader={
+										<div>
+											<PagingInfo />
+											<br />
+											<DownloadFile ResultData={resultdata} />
+										</div>
+									}
 									bodyContent={results.map((r) => (
 										<div>
 											<h2>{r.lastname.raw}</h2>
@@ -79,8 +107,6 @@ export default function App() {
 											<p>
 												{r.gender.raw} {r.studentstatus.raw}
 											</p>
-
-											<button>Download </button>
 										</div>
 									))}
 									sideContent={
