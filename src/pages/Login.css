@@ -1,0 +1,38 @@
+.body-login {
+	display: flex;
+	width: 599px;
+	height: 300px;
+	background: linear-gradient(#2da0fa, #3158ee) #2f7cf4;
+	border-radius: 15px;
+	justify-content: center;
+	align-items: center;
+	margin: auto;
+}
+.body-login p ,h2 {
+    color: white;
+
+}
+.body-login p{
+    font-size: 1.3rem;
+}
+.body-login input{
+    font-size: 1.6rem;
+}
+.body-login-align {
+	flex-direction: row;
+	justify-content: center;
+	align-content: center;
+}
+.Login-btn button {
+	margin-top: 10px;
+	background: white;
+	border: none;
+	color: black;
+
+	text-align: center;
+	text-decoration: none;
+
+	font-size: 16px;
+	cursor: pointer;
+	border-radius: 5px;
+}

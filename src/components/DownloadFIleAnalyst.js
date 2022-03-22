@@ -1,9 +1,9 @@
 import { CSVLink } from 'react-csv';
 import './DownloadFile.css';
-export default function DownloadFile(props) {
+export default function DownloadFileAnalyst(props) {
 	const result = props.ResultData;
 	let data = [];
-	let fname, lname, cities, state, gender, studentstatus, major, country, age, grade, height;
+	let fname, lname, cities, state, gender, studentstatus, major, country;
 	result.map((e) => {
 		e.map((e2) => {
 			if (e2.firstname) {
@@ -30,15 +30,6 @@ export default function DownloadFile(props) {
 			if (e2.country) {
 				country = e2.country;
 			}
-			if (e2.age) {
-				age = e2.age;
-			}
-			if (e2.grade) {
-				grade = e2.grade;
-			}
-			if (e2.height) {
-				height = e2.height;
-			}
 		});
 		data.push({
 			firstname: fname,
@@ -48,10 +39,7 @@ export default function DownloadFile(props) {
 			gender: gender,
 			studentstatus: studentstatus,
 			major: major,
-			country: country,
-			age: age,
-			grade: grade,
-			height: height
+			country: country
 		});
 	});
 	const sendToConsole = () => {
@@ -89,24 +77,12 @@ export default function DownloadFile(props) {
 		{
 			label: 'Country',
 			key: 'country'
-		},
-		{
-			label: 'Age',
-			key: 'age'
-		},
-		{
-			label: 'Grade',
-			key: 'grade'
-		},
-		{
-			label: 'Height',
-			key: 'height'
 		}
 	];
 	const csvLink = {
 		headers: headers,
 		data: data,
-		filename: 'datafile.csv'
+		filename: 'datafile-analyst.csv'
 	};
 
 	return (

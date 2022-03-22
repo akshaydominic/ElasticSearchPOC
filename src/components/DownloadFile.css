@@ -1,0 +1,18 @@
+.download-btn-all {
+	background: linear-gradient(#2da0fa, #3158ee) #2f7cf4;
+	border: none;
+	color: white;
+	padding: 8px;
+	text-align: center;
+	text-decoration: none;
+	display: inline-block;
+	font-size: 16px;
+    cursor: pointer;
+    border-radius: 8px;
+}
+.Card-field p{
+    margin: 0;
+    padding: 2px;
+    text-decoration: none;
+
+}

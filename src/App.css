@@ -1,1 +1,22 @@
-
+.App {
+	color: FAFAFA;
+}
+.Card {
+	margin-top: 10px;
+	padding: 10px;
+	background-color: #fff;
+	border-radius: 15px;
+	box-shadow: 0 0 24px 0 rgba(0, 0, 0, 0.2);
+}
+.Download-btn {
+	position: absolute;
+	right: 68px;
+}
+.container-btn{
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+}
+.Card-field p{
+	display: inline;
+	letter-spacing: 2px;
+}
