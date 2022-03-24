@@ -1,6 +1,6 @@
 import React from 'react';
 import AppSearchAPIConnector from '@elastic/search-ui-app-search-connector';
-import { SearchProvider, Results, SearchBox, Facet, WithSearch } from '@elastic/react-search-ui';
+import { SearchProvider, Results, SearchBox, Facet, WithSearch, ResultsPerPage } from '@elastic/react-search-ui';
 import { Layout } from '@elastic/react-search-ui-views';
 import { MultiCheckboxFacet } from '@elastic/react-search-ui-views';
 import { Paging } from '@elastic/react-search-ui';
@@ -30,6 +30,7 @@ const configurationOptions = {
 			country: {},
 			gender: {}
 		},
+
 		result_fields: {
 			lastname: { raw: {} },
 			firstname: { raw: {} },
@@ -98,6 +99,7 @@ export default function AdminPage() {
 									header={<SearchBox inputProps={{ placeholder: 'Search for Student details' }} />}
 									bodyHeader={
 										<div className="container-btn">
+											<ResultsPerPage  />
 											<Logoutbtn />
 											<PagingInfo />
 											<br />
