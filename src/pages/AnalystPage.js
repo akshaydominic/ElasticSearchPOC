@@ -9,6 +9,7 @@ import '../App.css';
 
 import '@elastic/react-search-ui-views/lib/styles/styles.css';
 import DownloadFileAnalyst from '../components/DownloadFIleAnalyst';
+import Logoutbtn from '../components/Logoutbtn';
 
 const connector = new AppSearchAPIConnector({
 	searchKey: 'search-229rksjgu5nb5gm75fq9foxp',
@@ -91,6 +92,7 @@ export default function AnalystPage() {
 									header={<SearchBox inputProps={{ placeholder: 'Search for Student details' }} />}
 									bodyHeader={
 										<div className="container-btn">
+											<Logoutbtn />
 											<PagingInfo />
 											<br />
 											<div className="Download-btn">
@@ -102,13 +104,13 @@ export default function AnalystPage() {
 										<div className="Card">
 											<h2 style={{ color: '#3259ED' }}>{r.lastname.raw}</h2>
 											<div className="Card-field">
-												<p>[Firstname : {r.firstname.raw}]</p>
-												<p>[City : {r.city.raw}]</p>
-												<p>[State : {r.state.raw}]</p>
-												<p>[Gender: {r.gender.raw}]</p>
-												<p>[Student Status: {r.studentstatus.raw}]</p>
-												<p>[Major: {r.major.raw}]</p>
-												<p>[Country: {r.country.raw}]</p>
+												<p>Firstname : {r.firstname.raw}</p>
+												<p>City : {r.city.raw}</p>
+												<p>State : {r.state.raw}</p>
+												<p>Gender: {r.gender.raw}</p>
+												<p>Student Status: {r.studentstatus.raw}</p>
+												<p>Major: {r.major.raw}</p>
+												<p>Country: {r.country.raw}</p>
 											</div>
 										</div>
 									))}

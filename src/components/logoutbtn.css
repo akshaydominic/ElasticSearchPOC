@@ -1,0 +1,13 @@
+.logout button{
+    text-decoration: none;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 1.5rem;
+    border-radius: 5px;
+    text-align: center;
+    background-color: red;
+    color: white;
+    cursor: pointer;
+    border-style: none;
+
+}
+

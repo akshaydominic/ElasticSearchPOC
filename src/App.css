@@ -12,11 +12,10 @@
 	position: absolute;
 	right: 68px;
 }
-.container-btn{
-    margin-bottom: 20px;
-    padding-bottom: 20px;
+.container-btn {
+	margin-bottom: 20px;
+	padding-bottom: 20px;
 }
-.Card-field p{
-	display: inline;
-	letter-spacing: 2px;
+.Card-field p {
+	letter-spacing: 1px;
 }
