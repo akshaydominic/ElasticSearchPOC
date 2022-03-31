@@ -6,6 +6,7 @@ import { MultiCheckboxFacet } from '@elastic/react-search-ui-views';
 import { Paging } from '@elastic/react-search-ui';
 import { PagingInfo } from '@elastic/react-search-ui';
 import '../App.css';
+import DownloadAllAnalyst from '../components/DownloadAllAnalyst';
 
 import '@elastic/react-search-ui-views/lib/styles/styles.css';
 import DownloadFile from '../components/DownloadFile';
@@ -115,13 +116,14 @@ export default function AdminPage() {
 		<SearchProvider config={configurationOptions}>
 			<div className="App">
 				<WithSearch
-					mapContextToProps={({ searchTerm, setSearchTerm, results }) => ({
+					mapContextToProps={({ searchTerm, setSearchTerm, results, filters }) => ({
 						searchTerm,
 						setSearchTerm,
-						results
+						results,
+						filters
 					})}
 				>
-					{({ results }) => {
+					{({ results, searchTerm, filters }) => {
 						let resultdata = ConvertRawDatatoJson(results);
 						return (
 							<div>
@@ -134,7 +136,11 @@ export default function AdminPage() {
 											<PagingInfo />
 											<br />
 											<div className="Download-btn">
-												<DownloadFile ResultData={resultdata} />
+												<DownloadAllAnalyst
+													searchTerm={searchTerm}
+													connector={connector}
+													contextprops={filters}
+												/>
 											</div>
 										</div>
 									}

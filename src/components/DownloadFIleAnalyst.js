@@ -151,7 +151,7 @@ export default function DownloadFile(props) {
 	return (
 		<div>
 			<CSVLink {...csvLink} target="_blank">
-				<button className="download-btn-all">Download All</button>
+				<button className="download-btn-all">Download</button>
 			</CSVLink>
 		</div>
 	);

@@ -1,9 +1,9 @@
 import { SearchProvider } from '@elastic/react-search-ui/lib/cjs';
 import { WithSearch } from '@elastic/react-search-ui/lib/cjs';
 import { useEffect, useState } from 'react';
-import DownloadFile from './DownloadFile';
+import DownloadFile from './DownloadFIleAnalyst';
 import './DownloadFile.css';
-export default function DownloadAll(props) {
+export default function DownloadAllAnalyst(props) {
 	const connector = props.connector;
 	let filters = props.contextprops;
 	let searchTerm = props.searchTerm;
@@ -46,10 +46,7 @@ export default function DownloadAll(props) {
 				state: { raw: {} },
 				country: { raw: {} },
 				start_date: { raw: {} },
-				end_date: { raw: {} },
-				links: { raw: {} },
-				additional_links: { raw: {} },
-				gm_comments: { raw: {} }
+				end_date: { raw: {} }
 			}
 		}
 	};
@@ -72,10 +69,7 @@ export default function DownloadAll(props) {
 				{ state: e.state.raw },
 				{ country: e.country.raw },
 				{ start_date: e.start_date.raw },
-				{ end_date: e.end_date.raw },
-				{ links: e.links.raw },
-				{ additional_links: e.additional_links.raw },
-				{ gm_comments: e.gm_comments.raw }
+				{ end_date: e.end_date.raw }
 			]);
 		});
 		return RawtoJsonArray;
