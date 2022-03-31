@@ -1,18 +1,13 @@
 import { SearchProvider } from '@elastic/react-search-ui/lib/cjs';
 import { WithSearch } from '@elastic/react-search-ui/lib/cjs';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 export default function DownloadAll(props) {
+	const connector = props.connector;
 	let filters = props.contextprops;
-	let connector = props.connector;
 	let searchTerm = props.searchTerm;
-	let data, configurationOptions;
+	let data;
 	let filterdata = [];
-	let hardcodedValues = [
-		{
-			field: 'state',
-			values: [ 'Texas' ]
-		}
-	];
+	let [ filterdatastate, setfliterdata ] = useState([ {} ]);
 	useEffect(
 		() => {
 			filters.map((e) => {
@@ -25,45 +20,15 @@ export default function DownloadAll(props) {
 				}
 				filterdata.push(tempObj);
 			});
-			console.log('Effect called ');
-			filterdata.map((e) => {
-				console.log(e);
-			});
-			configurationOptions = {
-				apiConnector: connector,
-
-				searchQuery: {
-					filters: filterdata,
-					resultsPerPage: 200,
-					result_fields: {
-						kol_id: { raw: {} },
-						kol_name: { raw: {} },
-						organization_name: { raw: {} },
-						parent_org_name: { raw: {} },
-						org_type: { raw: {} },
-						parent_org_type: { raw: {} },
-						board_comittee: { raw: {} },
-						position_role: { raw: {} },
-						affiliation_type: { raw: {} },
-						city: { raw: {} },
-						state: { raw: {} },
-						country: { raw: {} },
-						start_date: { raw: {} },
-						end_date: { raw: {} },
-						links: { raw: {} },
-						additional_links: { raw: {} },
-						gm_comments: { raw: {} }
-					}
-				}
-			};
+			setfliterdata(filterdata);
 		},
 		[ filters, searchTerm ]
 	);
-
-	configurationOptions = {
+	const configurationOptions = {
 		apiConnector: connector,
 		searchQuery: {
-			filters: filterdata,
+			query: searchTerm,
+			filters: filterdatastate,
 			resultsPerPage: 200,
 			result_fields: {
 				kol_id: { raw: {} },
@@ -86,6 +51,7 @@ export default function DownloadAll(props) {
 			}
 		}
 	};
+
 	const ConvertRawDatatoJson = (Results) => {
 		let RawtoJsonArray = [];
 
@@ -121,7 +87,6 @@ export default function DownloadAll(props) {
 			console.log(e);
 		});
 	};
-
 	return (
 		<div>
 			<SearchProvider config={configurationOptions}>
