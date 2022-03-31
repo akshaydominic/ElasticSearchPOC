@@ -1,6 +1,8 @@
 import { SearchProvider } from '@elastic/react-search-ui/lib/cjs';
 import { WithSearch } from '@elastic/react-search-ui/lib/cjs';
 import { useEffect, useState } from 'react';
+import DownloadFile from './DownloadFile';
+import './DownloadFile.css';
 export default function DownloadAll(props) {
 	const connector = props.connector;
 	let filters = props.contextprops;
@@ -100,8 +102,14 @@ export default function DownloadAll(props) {
 						data = resultdata;
 						return (
 							<div>
-								<button onClick={consolelog}>Download All Console </button>
-								<button onClick={consolelogsearch}>Search and filters element Console</button>
+								<div className="Download-btn">
+									<DownloadFile ResultData={data} />
+								</div>
+								<div>
+									<br />
+									<button onClick={consolelog}>Download All Console </button>
+									<button onClick={consolelogsearch}>Search and filters element Console</button>
+								</div>
 							</div>
 						);
 					}}

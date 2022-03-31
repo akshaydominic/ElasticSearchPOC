@@ -143,7 +143,6 @@ export default function AdminPage() {
 											<br />
 
 											<div className="Download-btn">
-												<DownloadFile ResultData={resultdata} />
 												<DownloadAll
 													searchTerm={searchTerm}
 													connector={connector}
