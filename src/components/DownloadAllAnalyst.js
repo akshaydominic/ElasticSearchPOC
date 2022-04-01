@@ -45,8 +45,7 @@ export default function DownloadAllAnalyst(props) {
 				city: { raw: {} },
 				state: { raw: {} },
 				country: { raw: {} },
-				start_date: { raw: {} },
-				end_date: { raw: {} }
+				
 			}
 		}
 	};
@@ -68,8 +67,6 @@ export default function DownloadAllAnalyst(props) {
 				{ city: e.city.raw },
 				{ state: e.state.raw },
 				{ country: e.country.raw },
-				{ start_date: e.start_date.raw },
-				{ end_date: e.end_date.raw }
 			]);
 		});
 		return RawtoJsonArray;

@@ -1,13 +1,28 @@
 .logout button{
-    text-decoration: none;
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    font-size: 1.5rem;
-    border-radius: 5px;
-    text-align: center;
-    background-color: red;
-    color: white;
-    cursor: pointer;
-    border-style: none;
-
+  background: linear-gradient(#2da0fa, #3158ee) #2f7cf4;
+  box-shadow: rgb(0 0 0 / 5%) 0px 0px 0px 1px inset, rgb(59 69 79 / 5%) 0px 1px 0px;
+  text-shadow: rgb(0 0 0 / 5%) 0px 1px 2px;
+  color: white;
+  border: 1px solid #555555;
+  border-radius: 4px;
+  padding: 14px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 1rem;
+  
+  margin: 4px 2px;
+  transition-duration: 0.4s;
+  cursor: pointer;
+  margin-right: 5%;
+  
+  }
+.logout {
+    display: flex;
+    width: 30vw;
+    justify-content: flex-end;
 }
-
+.logout button:hover{
+  background: red;
+	color: white;
+}

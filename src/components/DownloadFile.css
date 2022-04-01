@@ -1,18 +1,26 @@
-.download-btn-all {
-	background: linear-gradient(#2da0fa, #3158ee) #2f7cf4;
-	border: none;
-	color: white;
-	padding: 8px;
+.download-btn-all  {
+	background-color: white;
+    color: black;
+    border: 2px solid #555555;
+	border-radius: 5px;
+	padding: 8px 8px;
 	text-align: center;
 	text-decoration: none;
 	display: inline-block;
-	font-size: 16px;
-    cursor: pointer;
-    border-radius: 8px;
+	font-size: 14px;
+	margin: 4px 2px;
+	transition-duration: 0.4s;
+	cursor: pointer;
+	width: 100%;
 }
 .Card-field p{
     margin: 0;
     padding: 2px;
     text-decoration: none;
 
+}
+
+.download-btn-all:hover{
+	background-color: #555555;
+	color: white;
 }

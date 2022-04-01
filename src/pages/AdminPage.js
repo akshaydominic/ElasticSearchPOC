@@ -7,10 +7,11 @@ import { Paging } from '@elastic/react-search-ui';
 import { PagingInfo } from '@elastic/react-search-ui';
 import '../App.css';
 import '@elastic/react-search-ui-views/lib/styles/styles.css';
-import DownloadFile from '../components/DownloadFile';
+import logo1 from '../images/glocalLogo1.jpg';
 import Logoutbtn from '../components/Logoutbtn';
 import DownloadAll from '../components/DownloadAll';
 import { WithSearch } from '@elastic/react-search-ui';
+import DisplayKol from '../components/DisplayKol';
 const connector = new AppSearchAPIConnector({
 	searchKey: 'search-95qzx7tqsh6aa1tb2u2wg9cu',
 	engineName: 'kol-engine',
@@ -134,14 +135,25 @@ export default function AdminPage() {
 						return (
 							<div>
 								<Layout
-									header={<SearchBox inputProps={{ placeholder: 'Search for KOL Data' }} />}
+									header={
+										<div className="Search-bar">
+											<div className="SearchImage">
+												<img src={logo1} />
+												<SearchBox
+													className="search-ui"
+													inputProps={{ placeholder: 'Search for KOL Data' }}
+												/>
+												
+													<Logoutbtn className="Logout-btn" />
+												
+											</div>
+										</div>
+									}
 									bodyHeader={
 										<div className="container-btn">
 											<ResultsPerPage />
-											<Logoutbtn />
 											<PagingInfo />
 											<br />
-
 											<div className="Download-btn">
 												<DownloadAll
 													searchTerm={searchTerm}
@@ -151,27 +163,7 @@ export default function AdminPage() {
 											</div>
 										</div>
 									}
-									bodyContent={results.map((r) => (
-										<div className="Card">
-											<h2 style={{ color: '#3259ED' }}>{r.kol_name.raw}</h2>
-											<div className="Card-field">
-												<p>ID : {r.kol_id.raw}</p>
-												<p>Organization : {r.organization_name.raw}</p>
-												<p>Parent Organization : {r.parent_org_name.raw}</p>
-												<p>Organization Type: {r.org_type.raw}</p>
-												<p>Parent Organization Type: {r.parent_org_type.raw}</p>
-												<p>Board Comittee: {r.board_comittee.raw}</p>
-												<p>Position Role: {r.position_role.raw}</p>
-												<p>Affiliation Type : {r.affiliation_type.raw}</p>
-												<p>City: {r.city.raw}</p>
-												<p>State: {r.state.raw}</p>
-												<p>Country: {r.country.raw}</p>
-												<p>Links: {r.links.raw}</p>
-												<p>Additional Links: {r.additional_links.raw}</p>
-												<p>GM Comments: {r.gm_comments.raw}</p>
-											</div>
-										</div>
-									))}
+									bodyContent={<DisplayKol Results={results} />}
 									sideContent={
 										<div>
 											<Facet

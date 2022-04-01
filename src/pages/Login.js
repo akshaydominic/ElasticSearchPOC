@@ -1,7 +1,7 @@
 import { useNavigate } from 'react-router-dom';
 import './Login.css';
 import { useRef } from 'react';
-
+import logo from '../images/glocalLogo1.jpg';
 export default function Login() {
 	const navigate = useNavigate();
 	const nameInputRef = useRef();
@@ -46,15 +46,19 @@ export default function Login() {
 	return (
 		<div className="body-login">
 			<div className="body-login-align">
-				<h2>Login</h2>
+				<img src={logo} />
 				<div>
 					<form onSubmit={formSubmitHandler}>
-						<p>Username :</p>
-						<input ref={nameInputRef} type="text" id="username" />
-						<p>Password :</p>
-						<input ref={passInputRef} type="password" id="password" />
+						<div>
+							<input ref={nameInputRef} type="text" id="username" placeholder="User Name" />
+						</div>
+						<br />
+						<div>
+							<input ref={passInputRef} type="password" id="password" placeholder="Password" />
+						</div>
+						<br />
 						<div className="Login-btn">
-							<button>Login</button>
+							<button>Sign In</button>
 						</div>
 					</form>
 				</div>

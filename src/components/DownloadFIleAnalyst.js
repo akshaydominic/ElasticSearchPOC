@@ -15,9 +15,7 @@ export default function DownloadFile(props) {
 		affiliation_type,
 		city,
 		state,
-		country,
-		start_date,
-		end_date;
+		country
 
 	result.map((e) => {
 		e.map((e2) => {
@@ -57,12 +55,7 @@ export default function DownloadFile(props) {
 			if (e2.country) {
 				country = e2.country;
 			}
-			if (e2.start_date) {
-				start_date = e2.start_date;
-			}
-			if (e2.end_date) {
-				end_date = e2.end_date;
-			}
+			
 		});
 		data.push({
 			kol_id: kol_id,
@@ -77,8 +70,7 @@ export default function DownloadFile(props) {
 			city: city,
 			state: state,
 			country: country,
-			start_date: start_date,
-			end_date: end_date
+			
 		});
 	});
 	const sendToConsole = () => {
@@ -133,19 +125,11 @@ export default function DownloadFile(props) {
 			label: 'country',
 			key: 'country'
 		},
-		{
-			label: 'start_date',
-			key: 'start_date'
-		},
-		{
-			label: 'end_date',
-			key: 'end_date'
-		}
 	];
 	const csvLink = {
 		headers: headers,
 		data: data,
-		filename: 'datafile.csv'
+		filename: 'datafileAnalyst.csv'
 	};
 
 	return (
